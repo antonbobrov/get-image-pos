@@ -1,4 +1,3 @@
-import { SelectorOne, selectOne } from 'vevet-dom';
 import { Size, Coords } from './index';
 
 
@@ -78,7 +77,7 @@ export interface ContainerProp extends BaseProp {
     /**
      * Parent element according to which sizes will be calculated
      */
-    container: SelectorOne;
+    container: Element;
 }
 
 export type Prop = SizeProp | ContainerProp;
@@ -184,12 +183,9 @@ function getContainerSizes (
 
     // if has a container
     if ('container' in data) {
-        const container = selectOne(data.container);
         return {
-            // @ts-ignore
-            width: container.clientWidth,
-            // @ts-ignore
-            height: container.clientHeight,
+            width: data.container.clientWidth,
+            height: data.container.clientHeight,
         };
     }
 
