@@ -1,0 +1,20 @@
+.image-pos {
+    margin: 1rem;
+    float: left;
+    
+    &__title {
+        font-size: 1.25rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    &__img {
+        position: relative;
+        overflow: hidden;
+        width: 250px;
+        height: 250px;
+        background-color: #eee;
+        box-sizing: border-box;
+        border: 1px solid #999;
+    }
+
+}
