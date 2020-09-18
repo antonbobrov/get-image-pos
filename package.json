@@ -1,6 +1,6 @@
 {
   "name": "get-image-pos",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Get image position coordinates",
   "scripts": {
     "release": "npm publish",
