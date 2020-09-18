@@ -211,7 +211,7 @@ function getPosCover (
     let width = containerSizes.width * getScale(data);
     let height = sourceSizes.height * width / sourceSizes.width;
 
-    if (height < sourceSizes.height) {
+    if (height < containerSizes.height) {
         height = containerSizes.height * getScale(data);
         width = sourceSizes.width * height / sourceSizes.height;
     }
