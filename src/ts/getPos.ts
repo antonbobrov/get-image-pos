@@ -191,7 +191,7 @@ function getContainerSizes (
 
     return {
         width: data.width,
-        height: data.width,
+        height: data.height,
     };
 
 }
