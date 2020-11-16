@@ -25,7 +25,12 @@
     "url": "git+https://github.com/antonbobrov/get-image-pos.git"
   },
   "keywords": [
-    "keyword"
+    "image",
+    "position",
+    "cover",
+    "contain",
+    "imagesize",
+    "bgsize"
   ],
   "author": "Anthony Bobrov <anton.bobrov@hotmail.com>",
   "license": "MIT",
