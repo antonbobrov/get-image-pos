@@ -241,14 +241,26 @@ function getPosContain (
     let width = 0;
     let height = 0;
 
-    if (sourceSizes.width > sourceSizes.height) {
-        width = containerSizes.width * getScale(data);
-        height = sourceSizes.height * width / sourceSizes.width;
+    const widthRatio = sourceSizes.width / sourceSizes.height;
+    if (containerSizes.width > containerSizes.height) {
+        height = containerSizes.height;
+        width = height * widthRatio;
+        if (width > containerSizes.width) {
+            width = containerSizes.width;
+            height = width / widthRatio;
+        }
     }
-    else if (sourceSizes.height >= sourceSizes.width) {
-        height = containerSizes.height * getScale(data);
-        width = sourceSizes.width * height / sourceSizes.height;
+    else if (containerSizes.height >= containerSizes.width) {
+        width = containerSizes.width;
+        height = width / widthRatio;
+        if (height > containerSizes.height) {
+            height = containerSizes.height;
+            width = height * widthRatio;
+        }
     }
+
+    width *= getScale(data);
+    height *= getScale(data);
 
     const x = (containerSizes.width - width) / 2;
     const y = (containerSizes.height - height) / 2;
