@@ -57,6 +57,14 @@ export interface BaseProp {
      * Scaling
      */
     scale?: number;
+    /**
+     * Source size (if known). This will reduce performance load
+     */
+    sourceWidth?: number;
+    /**
+     * Source size (if known). This will reduce performance load
+     */
+    sourceHeight?: number;
 }
 
 /**
@@ -159,10 +167,24 @@ function getSourceSizes (
 
     const { source } = data;
 
+    if (!!data.sourceWidth && !!data.sourceHeight) {
+        return {
+            width: data.sourceWidth,
+            height: data.sourceHeight,
+        };
+    }
+
     if (source instanceof HTMLVideoElement) {
         return {
             width: source.videoWidth,
             height: source.videoHeight,
+        };
+    }
+
+    if (source instanceof HTMLImageElement) {
+        return {
+            width: source.naturalWidth,
+            height: source.naturalHeight,
         };
     }
 
